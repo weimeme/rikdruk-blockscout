@@ -2,10 +2,19 @@ version: '3.9'
 
 services:
   frontend:
-    image: ghcr.io/blockscout/frontend:${FRONTEND_DOCKER_TAG:-latest}
+    image: ghcr.io/blockscout/frontend:v1.21.2
     pull_policy: always
     platform: linux/amd64
     restart: always
     container_name: 'frontend'
     env_file:
       -  ../envs/common-frontend.env
+    volumes:
+      - ./.next/standalone/.next:/app/.next
+      - ./.next/standalone/node_modules:/app/node_modules
+      - ./.next/standalone/pages:/app/pages
+      - ./.next/standalone/ui:/app/ui
+      - ./.next/standalone/package.json:/app/package.json
+      - ./.next/standalone/server.js:/app/server.js
+      - ./.next/static:/app/.next/static
+      - ./.next/public:/app/public

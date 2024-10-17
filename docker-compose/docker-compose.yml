@@ -40,11 +40,6 @@ services:
         RELEASE_VERSION: 6.8.1
     links:
       - db:database
-    environment:
-    #     ETHEREUM_JSONRPC_HTTP_URL: http://host.docker.internal:8545/
-    #     ETHEREUM_JSONRPC_TRACE_URL: http://host.docker.internal:8545/
-        ETHEREUM_JSONRPC_WS_URL: wss://rpc1.gjwec.com/
-        CHAIN_ID: '42'
 
   visualizer:
     extends:
