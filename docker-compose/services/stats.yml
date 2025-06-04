@@ -35,7 +35,8 @@ services:
       start_period: 10s
 
   stats:
-    image: wjyask/stats:latest
+    # image: wjyask/stats:latest
+    image: ghcr.io/blockscout/stats:latest
     pull_policy: always
     platform: linux/amd64
     restart: always
@@ -49,3 +50,5 @@ services:
       - STATS__BLOCKSCOUT_DB_URL=${STATS__BLOCKSCOUT_DB_URL:-postgresql://blockscout:cEWb1MELBE1OIFk56gU6Ejf6@db:5432/blockscout}
       - STATS__CREATE_DATABASE=${STATS__CREATE_DATABASE:-true}
       - STATS__RUN_MIGRATIONS=${STATS__RUN_MIGRATIONS:-true}
+      # 新添加的 解决stats服务抱错问题
+      - STATS__IGNORE_BLOCKSCOUT_API_ABSENCE=true
