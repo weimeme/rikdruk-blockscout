@@ -87,11 +87,12 @@ services:
       file: ./services/user-ops-indexer.yml
       service: user-ops-indexer
 
-  proxy:
-    depends_on:
-      - backend
-      - frontend
-      - stats
-    extends:
-      file: ./services/nginx.yml
-      service: proxy
+  #  待运维修改配置后启动
+  # proxy:
+  #   depends_on:
+  #     - backend
+  #     - frontend
+  #     - stats
+  #   extends:
+  #     file: ./services/nginx.yml
+  #     service: proxy
